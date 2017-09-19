@@ -16,7 +16,7 @@ public class BaiduOCR {
     //设置APPID/AK/SK
     public static final String APP_ID = "10161516";
     public static final String API_KEY = "Sgp3IWWbaUhN9lVE7Un8Quv6";
-    public static final String SECRET_KEY = "NFBRRQ3vRNZAhfddN3Zjno4STLCY4Hvb";
+    public static final String SECRET_KEY = "NFBRRQ3vRNZAhfddN3Zjno4STLCY4Hvc";
 
     public static String BaiduOCR(String filePath) {
         // 初始化一个AipOcr

@@ -7,20 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0be0168-3d44-4acf-8711-a51abc821e80" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebRoot/WEB-INF/lib/aip-java-sdk-3.1.0.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/WebRoot/WEB-INF/lib/json-20160810.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/json_20160810.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/nldy/uploader/BaiduOCR.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.classpath" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.project" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/WebRoot/Copy of uploader.jsp" afterPath="$PROJECT_DIR$/WebRoot/uploader1.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/com/nldy/uploader/UploaderCheckServlet$1.class" afterPath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/com/nldy/uploader/UploaderCheckServlet$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/com/nldy/uploader/UploaderCheckServlet$2.class" afterPath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/com/nldy/uploader/UploaderCheckServlet$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/com/nldy/uploader/UploaderCheckServlet.class" afterPath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/com/nldy/uploader/UploaderCheckServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/com/nldy/uploader/UploaderServlet.class" afterPath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/com/nldy/uploader/UploaderServlet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebRoot/uploader.jsp" afterPath="$PROJECT_DIR$/WebRoot/uploader.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nldy/uploader/BaiduOCR.java" afterPath="$PROJECT_DIR$/src/com/nldy/uploader/BaiduOCR.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nldy/uploader/UploaderCheckServlet.java" afterPath="$PROJECT_DIR$/src/com/nldy/uploader/UploaderCheckServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/nldy/uploader/UploaderServlet.java" afterPath="$PROJECT_DIR$/src/com/nldy/uploader/UploaderServlet.java" />
     </list>
     <ignored path="$PROJECT_DIR$/WebRoot/WEB-INF/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,24 +25,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UploaderCheckServlet.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UploaderCheckServlet.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/nldy/uploader/UploaderCheckServlet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="92" column="0" lean-forward="true" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+            <state relative-caret-position="383">
+              <caret line="35" column="50" lean-forward="true" selection-start-line="35" selection-start-column="50" selection-end-line="35" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1507#1513#0" expanded="true" />
+                <element signature="e#1734#1740#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BaiduOCR.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="BaiduOCR.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/nldy/uploader/BaiduOCR.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="52" column="24" lean-forward="false" selection-start-line="52" selection-start-column="15" selection-end-line="52" selection-end-column="24" />
+            <state relative-caret-position="68">
+              <caret line="18" column="77" lean-forward="false" selection-start-line="18" selection-start-column="77" selection-end-line="18" selection-end-column="77" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -129,8 +119,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/com/nldy/uploader/UploaderServlet.java" />
-        <option value="$PROJECT_DIR$/src/com/nldy/uploader/BaiduOCR.java" />
         <option value="$PROJECT_DIR$/src/com/nldy/uploader/UploaderCheckServlet.java" />
+        <option value="$PROJECT_DIR$/src/com/nldy/uploader/BaiduOCR.java" />
       </list>
     </option>
   </component>
@@ -169,7 +159,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -216,6 +205,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
@@ -419,12 +409,14 @@
       <updated>1505806247170</updated>
       <workItem from="1505806258497" duration="206000" />
       <workItem from="1505806612408" duration="8892000" />
-      <workItem from="1505826412977" duration="521000" />
+      <workItem from="1505826412977" duration="1993000" />
+      <workItem from="1505830538203" duration="264000" />
+      <workItem from="1505830834851" duration="190000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9619000" />
+    <option name="totallyTimeSpent" value="11545000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -439,14 +431,15 @@
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Key Promoter X" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Key Promoter X" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32958034" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -457,10 +450,11 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32958034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="CheckStyle" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958034" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24603175" sideWeight="0.49403748" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25213677" sideWeight="0.49403748" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24297924" sideWeight="0.50596255" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24297924" sideWeight="0.50596255" order="2" side_tool="true" content_ui="tabs" />
@@ -500,7 +494,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1507#1513#0" expanded="true" />
+            <element signature="e#1734#1740#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -536,21 +530,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/nldy/uploader/UploaderCheckServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="92" column="0" lean-forward="true" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+        <state relative-caret-position="383">
+          <caret line="35" column="50" lean-forward="true" selection-start-line="35" selection-start-column="50" selection-end-line="35" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1507#1513#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/nldy/uploader/BaiduOCR.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="52" column="24" lean-forward="false" selection-start-line="52" selection-start-column="15" selection-end-line="52" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1734#1740#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -586,6 +570,16 @@
         <state relative-caret-position="315">
           <caret line="21" column="7" lean-forward="false" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/nldy/uploader/BaiduOCR.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="18" column="77" lean-forward="false" selection-start-line="18" selection-start-column="77" selection-end-line="18" selection-end-column="77" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

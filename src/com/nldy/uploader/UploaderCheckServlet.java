@@ -19,107 +19,108 @@ import java.util.List;
 
 /**
  * 文件合并的servlet
- * 
+ *
  * @author 弄浪的鱼
- * 
  */
 public class UploaderCheckServlet extends HttpServlet {
 
-	public static String SERVER_PATH = "/Users/shui/Desktop/upload";
+    public static String SERVER_PATH = "/Users/shui/Desktop/upload";
 
-	public void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
 
-	}
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-	public void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		String action = request.getParameter("action");
+    }
 
-		if ("mergeChunks".equals(action)) {
-			System.out.println("开始合并文件...");
-			// 合并文件
-			String fileMd5 = request.getParameter("fileMd5");
-			String fileName = request.getParameter("fileName");
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String action = request.getParameter("action");
 
-			// 读取目录里面的所有文件
-			File f = new File(SERVER_PATH + "/" + fileMd5);
-			File[] fileArray = f.listFiles(new FileFilter() {
+        if ("mergeChunks".equals(action)) {
+            System.out.println("开始合并文件...");
+            // 合并文件
+            String fileMd5 = request.getParameter("fileMd5");
+            String fileName = request.getParameter("fileName");
 
-				// 排除目录，只要文件
-				public boolean accept(File pathname) {
-					if (pathname.isDirectory()) {
-						return false;
-					}
-					return true;
-				}
-			});
+            // 读取目录里面的所有文件
+            File f = new File(SERVER_PATH + "/" + fileMd5);
+            File[] fileArray = f.listFiles(new FileFilter() {
 
-			// 转成集合，便于排序
-			List<File> fileList = new ArrayList<File>(Arrays.asList(fileArray));
+                // 排除目录，只要文件
+                public boolean accept(File pathname) {
+                    if (pathname.isDirectory()) {
+                        return false;
+                    }
+                    return true;
+                }
+            });
 
-			// 从小到大排序
-			Collections.sort(fileList, new Comparator<File>() {
+            // 转成集合，便于排序
+            List<File> fileList = new ArrayList<File>(Arrays.asList(fileArray));
 
-				public int compare(File o1, File o2) {
-					if (Integer.parseInt(o1.getName()) < Integer.parseInt(o2
-							.getName())) {
-						return -1;
-					}
-					return 1;
-				}
+            // 从小到大排序
+            Collections.sort(fileList, new Comparator<File>() {
 
-			});
+                public int compare(File o1, File o2) {
+                    if (Integer.parseInt(o1.getName()) < Integer.parseInt(o2
+                            .getName())) {
+                        return -1;
+                    }
+                    return 1;
+                }
 
-			File outputFile = new File(SERVER_PATH + "/" + fileName);
+            });
 
-			// 创建文件
-			outputFile.createNewFile();
+            File outputFile = new File(SERVER_PATH + "/" + fileName);
 
-			// 输出流
-			FileChannel outChannel = new FileOutputStream(outputFile)
-					.getChannel();
+            // 创建文件
+            outputFile.createNewFile();
 
-			// 合并
-			FileChannel inChannel;
-			for (File file : fileList) {
-				inChannel = new FileInputStream(file).getChannel();
-				inChannel.transferTo(0, inChannel.size(), outChannel);
-				inChannel.close();
+            // 输出流
+            FileChannel outChannel = new FileOutputStream(outputFile)
+                    .getChannel();
 
-				// 删除分片
-				file.delete();
-			}
+            // 合并
+            FileChannel inChannel;
+            for (File file : fileList) {
+                inChannel = new FileInputStream(file).getChannel();
+                inChannel.transferTo(0, inChannel.size(), outChannel);
+                inChannel.close();
 
-			// 清除文件夹
-			File tempFile = new File(SERVER_PATH + "/" + fileMd5);
-			if (tempFile.isDirectory() && tempFile.exists()) {
-				tempFile.delete();
-			}
+                // 删除分片
+                file.delete();
+            }
 
-			// 关闭流
-			outChannel.close();
-			String result = BaiduOCR.BaiduOCR(SERVER_PATH + "/" + fileName);
+            // 清除文件夹
+            File tempFile = new File(SERVER_PATH + "/" + fileMd5);
+            if (tempFile.isDirectory() && tempFile.exists()) {
+                tempFile.delete();
+            }
+
+            // 关闭流
+            outChannel.close();
+            String result = BaiduOCR.BaiduOCR(SERVER_PATH + "/" + fileName);
             System.out.println(result);
             response.setContentType("text/html;charset=utf-8");
-			response.getWriter().write("{\"msg\":\"合并成功\"}");
-		}else if("checkChunk".equals(action)){
-			System.out.println("checkChunk...");
-	        String fileMd5 = request.getParameter("fileMd5");
-	        String chunk = request.getParameter("chunk");
-	        String chunkSize = request.getParameter("chunkSize");
+            response.getWriter().write("{\"msg\":\"合并成功\"}");
+        } else if ("checkChunk".equals(action)) {
+            System.out.println("checkChunk...");
+            String fileMd5 = request.getParameter("fileMd5");
+            String chunk = request.getParameter("chunk");
+            String chunkSize = request.getParameter("chunkSize");
 
-	        File checkFile = new File(SERVER_PATH +"/"+fileMd5+"/"+chunk);
+            File checkFile = new File(SERVER_PATH + "/" + fileMd5 + "/" + chunk);
 
-	        response.setContentType("text/html;charset=utf-8");
-	        //检查文件是否存在，且大小是否一致
-	        if(checkFile.exists() && checkFile.length()==Integer.parseInt(chunkSize)){
-	            response.getWriter().write("{\"ifExist\":1}");
-	        }else{
-	            response.getWriter().write("{\"ifExist\":0}");
-	        }
-			
-		}
-	}
+            response.setContentType("text/html;charset=utf-8");
+            //检查文件是否存在，且大小是否一致
+            if (checkFile.exists() && checkFile.length() == Integer.parseInt(chunkSize)) {
+                response.getWriter().write("{\"ifExist\":1}");
+            } else {
+                response.getWriter().write("{\"ifExist\":0}");
+            }
+
+            String SERVER_SS = "";
+        }
+    }
 
 }
