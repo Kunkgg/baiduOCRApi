@@ -1,14 +1,14 @@
 package com.nldy.uploader;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
-import java.io.FileFilter;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,7 +25,6 @@ import java.util.List;
 public class UploaderCheckServlet extends HttpServlet {
 
     public static String SERVER_PATH = "/Users/shui/Desktop/upload";
-
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -100,9 +99,12 @@ public class UploaderCheckServlet extends HttpServlet {
             // 关闭流
             outChannel.close();
             String result = BaiduOCR.BaiduOCR(SERVER_PATH + "/" + fileName);
-            System.out.println(result);
+            String words = json2String(result);
+
             response.setContentType("text/html;charset=utf-8");
-            response.getWriter().write("{\"msg\":\"合并成功\"}");
+//            response.getWriter().write("{\"msg\":\"合并成功\"}");
+            response.getWriter().write("{\"words\":\"" + words + "\"}");
+            System.out.println("{\"words\":\"" + words + "\"}");
         } else if ("checkChunk".equals(action)) {
             System.out.println("checkChunk...");
             String fileMd5 = request.getParameter("fileMd5");
@@ -119,8 +121,27 @@ public class UploaderCheckServlet extends HttpServlet {
                 response.getWriter().write("{\"ifExist\":0}");
             }
 
-            String SERVER_SS = "";
         }
+    }
+
+    private String json2String(String result){
+        String wordList = "";
+
+        JSONObject jsonObject = new JSONObject(result);
+
+        try{
+            JSONArray jsonArray = jsonObject.getJSONArray("words_result");
+            for (int i = 0; i < jsonArray.length();i++){
+                JSONObject wordsResult = jsonArray.getJSONObject(i);
+                String word = wordsResult.getString("words");
+                wordList += word;
+//                wordList += "//n";
+            }
+            return wordList;
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }

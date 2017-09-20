@@ -3,6 +3,9 @@ package com.nldy.uploader;
 import com.baidu.aip.ocr.AipOcr;
 import org.json.JSONObject;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 
 /**
@@ -47,18 +50,37 @@ public class BaiduOCR {
 
         // 参数为本地图片路径
 //        String imagePath = "/Users/shui/Desktop/2.png";
-        String imagePath = filePath;
-        JSONObject response1 = client.basicGeneral(imagePath, options);
-//        System.out.println(response1.toString());
-        return response1.toString();
+//        String imagePath = filePath;
+//        JSONObject response1 = client.basicGeneral(imagePath, options);
+//        String resString = response1.toString();
+//        System.out.println(resString);
+//        return response1.toString();
 //        // 参数为本地图片文件二进制数组
-//        byte[] file = readImageFile(imagePath);
-//        JSONObject response2 = client.basicGeneral(file, options);
-//        System.out.println(response2.toString());
+        byte[] file = readImageFile(filePath);
+        if(file != null){
+            JSONObject response2 = client.basicGeneral(file, options);
+//            System.out.println(response2.toString());
+            return response2.toString();
+        }
+        return null;
 //
         // 参数为图片url
 //        String url = "http://some.com/a.jpg";
 //        JSONObject response3 = client.basicGeneralUrl(url, options);
 //        System.out.println(response3.toString());
+    }
+
+    private static byte[] readImageFile(String filePath) {
+        byte[] data = null;
+        // 读取图片字节数组
+        try {
+            InputStream in = new FileInputStream(filePath);
+            data = new byte[in.available()];
+            in.read(data);
+            in.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return data;
     }
 }

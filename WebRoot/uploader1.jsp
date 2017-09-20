@@ -134,7 +134,11 @@
                     },
                     dataType:"json",
                     success:function(response){
-                        alert(response.msg);
+//                        alert(response.msg);
+//                        alert(response.words);
+                        var id=$("#"+file.id);
+                        //更新状态信息
+                        id.find("div.word").text(response.words);
                     }
                     }
                 );
@@ -175,7 +179,7 @@
 		uploader.on("fileQueued",function(file){
 			//追加文件信息div
 			$("#fileList").append("<div id='" + file.id + "'class='fileInfo'><img/><span>" + file.name +
-					"</span><div class='state'>等待上传...</div><span class='text'><span></div>");
+					"</span><div class='state'>等待上传...</div><div class='word'>1111</div><span class='text'><span></div>");
 			
 			//生成缩略图：调用makeThumb()方法
 			//error：制造缩略图失败
