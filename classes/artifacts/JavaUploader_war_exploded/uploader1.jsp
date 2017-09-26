@@ -18,6 +18,7 @@
 	border-color: black;
 	border-style: dashed;
 }
+
 </style>
 </head>
 <body>
@@ -171,8 +172,7 @@
 			paste:"#uploader",
 			//开启分片上传
 			chunked:true,
-			
-		});
+        });
 		
 		//2. 选择文件后，文件信息队列展示
 		//注册fileQueued事件：当文件加入队列后触发
@@ -184,13 +184,15 @@
 			//生成缩略图：调用makeThumb()方法
 			//error：制造缩略图失败
 			//src:缩略图的路径
-			uploader.makeThumb(file,function(error,src){
+
+            uploader.makeThumb(file,function(error,src){
+
 				var id = $("#" + file.id);
 				//如果失败，则显示不能预览
 				if(error){
 					id.find("img").replaceWith("不能预览");
 				}
-				
+
 				//成功，则显示缩略图到指定位置
 				id.find("img").attr("src",src);
 			});

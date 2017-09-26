@@ -2213,6 +2213,7 @@
              * });
              */
             makeThumb: function( file, cb, width, height ) {
+
                 var opts, image;
     
                 file = this.request( 'get-file', file );

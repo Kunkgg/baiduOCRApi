@@ -98,7 +98,8 @@ public class UploaderCheckServlet extends HttpServlet {
 
             // 关闭流
             outChannel.close();
-            String result = BaiduOCR.BaiduOCR(SERVER_PATH + "/" + fileName);
+//            String result = BaiduOCR.BaiduOCR(SERVER_PATH + "/" + fileName);
+            String result = TesseractOCR.TessractOCR(fileName);
             String words = json2String(result);
 
             response.setContentType("text/html;charset=utf-8");
