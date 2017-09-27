@@ -172,6 +172,7 @@
 			paste:"#uploader",
 			//开启分片上传
 			chunked:true,
+
         });
 		
 		//2. 选择文件后，文件信息队列展示

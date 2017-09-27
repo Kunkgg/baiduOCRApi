@@ -1,6 +1,5 @@
 package com.nldy.uploader;
 
-import org.apache.commons.io.FileUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -11,11 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.nio.channels.FileChannel;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 
 /**
@@ -23,7 +18,7 @@ import java.util.List;
  *
  * @author 弄浪的鱼
  */
-public class UploaderCheckServlet extends HttpServlet {
+public class UploaderCheckServlet2 extends HttpServlet {
 
     public static String SERVER_PATH = "/Users/shui/Desktop/upload";
 
@@ -103,17 +98,8 @@ public class UploaderCheckServlet extends HttpServlet {
 
             // 关闭流
             outChannel.close();
-//            String result = BaiduOCR.BaiduOCR(SERVER_PATH + "/" + fileName);
-//            String words = json2String(result);
-//
-//            response.setContentType("text/html;charset=utf-8");
-//            response.getWriter().write("{\"words\":\"" + words + "\"}");
-//            System.out.println("{\"words\":\"" + words + "\"}");
-
-            TesseractOCR tesseractOCR = new TesseractOCR();
-//            String words = tesseractOCR.tessractOCR(fileName);
-            String result = tesseractOCR.tessractOCR(fileName);
-            String words = tesseractOCR.readText(fileName);
+            String result = BaiduOCR.BaiduOCR(SERVER_PATH + "/" + fileName);
+            String words = json2String(result);
 
             response.setContentType("text/html;charset=utf-8");
             response.getWriter().write("{\"words\":\"" + words + "\"}");

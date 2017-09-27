@@ -89,7 +89,7 @@
                 $.ajax(
                     {
                     type:"POST",
-                    url:"${pageContext.request.contextPath}/UploaderCheckServlet?action=checkChunk",
+                    url:"${pageContext.request.contextPath}/UploaderCheckServlet2?action=checkChunk",
                     data:{
                         //文件唯一标记
                         fileMd5:fileMd5,
@@ -126,7 +126,7 @@
                 $.ajax(
                     {
                     type:"POST",
-                    url:"${pageContext.request.contextPath}/UploaderCheckServlet?action=mergeChunks",
+                    url:"${pageContext.request.contextPath}/UploaderCheckServlet2?action=mergeChunks",
                     data:{
                         //文件唯一标记
                         fileMd5:fileMd5,

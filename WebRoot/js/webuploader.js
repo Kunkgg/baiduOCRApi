@@ -2116,11 +2116,11 @@
              * ```
              */
             thumb: {
-                width: 110,
-                height: 110,
+                width: 1000,
+                height: 1000,
                 quality: 70,
                 allowMagnify: true,
-                crop: true,
+                crop: false,
                 preserveHeaders: false,
     
                 // 为空的话则保留原有图片格式。
