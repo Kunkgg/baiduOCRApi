@@ -30,10 +30,6 @@
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
-    <orderEntry type="library" name="com.genuitec.runtime.library/com.genuitec.generic_6.0" level="application" />
-    <orderEntry type="library" name="org.eclipse.jst.j2ee.internal.web.container" level="application" />
-    <orderEntry type="library" name="org.eclipse.jst.j2ee.internal.module.container" level="application" />
-    <orderEntry type="library" name="com.genuitec.runtime.library/com.genuitec.jstl_1.2.1" level="application" />
     <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
     <orderEntry type="library" name="commons-fileupload-1.2.1" level="project" />
     <orderEntry type="library" name="json-20160810" level="project" />

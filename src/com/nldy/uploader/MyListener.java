@@ -1,5 +1,6 @@
 package com.nldy.uploader;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
@@ -13,6 +14,7 @@ public class MyListener implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
+        ServletContext servletContext = servletContextEvent.getServletContext();
         new MyConfiguration();
     }
 
@@ -20,4 +22,6 @@ public class MyListener implements ServletContextListener {
     public void contextDestroyed(ServletContextEvent servletContextEvent) {
 
     }
+
 }
+

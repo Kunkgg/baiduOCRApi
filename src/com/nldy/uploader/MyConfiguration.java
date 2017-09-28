@@ -12,7 +12,7 @@ import java.util.Set;
  */
 public class MyConfiguration {
 
-    private static Map<String, String> items = new HashMap<>();
+    public static Map<String, String> items = new HashMap<>();
 
     private static String CONFIG_PROPERTIES_NAME = "config.properties";
 
@@ -20,16 +20,24 @@ public class MyConfiguration {
         loadConfig();
     }
 
+    public static void init(){
+        loadConfig();
+    }
+
     private static void loadConfig() {
+        try {
+            PropertyUtil.loadProp(CONFIG_PROPERTIES_NAME);
 
-        PropertyUtil.loadProp(CONFIG_PROPERTIES_NAME);
-
-        Set keyValue = PropertyUtil.prop.keySet();
-        for (Iterator it = keyValue.iterator(); it.hasNext(); ) {
-            String key = (String) it.next();
-            String value = PropertyUtil.prop.getProperty(key);
-            items.put(key, value);
+            Set keyValue = PropertyUtil.prop.keySet();
+            for (Iterator it = keyValue.iterator(); it.hasNext(); ) {
+                String key = (String) it.next();
+                String value = PropertyUtil.prop.getProperty(key);
+                items.put(key, value);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
+
     }
 
     /**
