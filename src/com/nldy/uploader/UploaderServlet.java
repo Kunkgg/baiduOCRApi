@@ -30,7 +30,6 @@ public class UploaderServlet extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         // 1. 创建DiskFileItemFactory对象，配置缓存信息
         DiskFileItemFactory factory = new DiskFileItemFactory();
 

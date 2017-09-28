@@ -20,12 +20,14 @@ import java.util.List;
 
 /**
  * 文件合并的servlet
+ * tesseract ocr
  *
  * @author 弄浪的鱼
  */
 public class UploaderCheckServlet extends HttpServlet {
 
-    public static String SERVER_PATH = "/Users/shui/Desktop/upload";
+    public static String SERVER_PATH = MyConfiguration.getString("upload_path");
+//    public static String SERVER_PATH = "/Users/shui/Desktop/upload";
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -36,15 +38,13 @@ public class UploaderCheckServlet extends HttpServlet {
             throws ServletException, IOException {
 
         String action = request.getParameter("action");
-        String fileName = "";
         response.setContentType("text/html;charset=utf-8");
-
 
         if ("mergeChunks".equals(action)) {
             System.out.println("开始合并文件...");
             // 合并文件
             String fileMd5 = request.getParameter("fileMd5");
-            fileName = request.getParameter("fileName");
+            String fileName = request.getParameter("fileName");
 
             // 读取目录里面的所有文件
             File f = new File(SERVER_PATH + "/" + fileMd5);
@@ -103,21 +103,8 @@ public class UploaderCheckServlet extends HttpServlet {
 
             // 关闭流
             outChannel.close();
-//            String result = BaiduOCR.BaiduOCR(SERVER_PATH + "/" + fileName);
-//            String words = json2String(result);
-//
-//            response.setContentType("text/html;charset=utf-8");
-//            response.getWriter().write("{\"words\":\"" + words + "\"}");
-//            System.out.println("{\"words\":\"" + words + "\"}");
 
-            TesseractOCR tesseractOCR = new TesseractOCR();
-//            String words = tesseractOCR.tessractOCR(fileName);
-            String result = tesseractOCR.tessractOCR(fileName);
-            String words = tesseractOCR.readText(fileName);
-
-            response.setContentType("text/html;charset=utf-8");
-            response.getWriter().write("{\"words\":\"" + words + "\"}");
-            System.out.println("{\"words\":\"" + words + "\"}");
+            String result = TesseractOCR.tessractOCR(fileName);
 
         } else if ("checkChunk".equals(action)) {
             System.out.println("checkChunk...");
@@ -134,6 +121,26 @@ public class UploaderCheckServlet extends HttpServlet {
             } else {
                 response.getWriter().write("{\"ifExist\":0}");
             }
+
+        } else if ("translate-tess".equals(action)) {
+
+            // tesseract 翻译
+
+            String fileName = request.getParameter("fileName");
+            String words = TesseractOCR.readText(fileName);
+            response.setContentType("text/html;charset=utf-8");
+            response.getWriter().write("{\"words\":\"" + words + "\"}");
+            System.out.println("{\"words\":\"" + words + "\"}");
+
+        } else if ("translate-baidu".equals(action)) {
+
+            // 百度翻译
+            String fileName = request.getParameter("fileName");
+            String result = BaiduOCR.BaiduOCR(SERVER_PATH + "/" + fileName);
+            String words = json2String(result);
+
+            response.setContentType("text/html;charset=utf-8");
+            response.getWriter().write("{\"words\":\"" + words + "\"}");
 
         }
 

@@ -1,6 +1,8 @@
 package com.nldy.uploader;
 
 import java.io.*;
+import java.nio.channels.FileChannel;
+import java.nio.channels.FileLock;
 
 /**
  * 用 tesseract 进行字符识别
@@ -9,11 +11,10 @@ import java.io.*;
 public class TesseractOCR {
 
     // 和程序同一目录下
-    public static String PARENT_PATH = "/Users/shui/Desktop/";
-    public static String FALIL_PATH = PARENT_PATH + "upload/";
-    public static String RESULT_PATH = PARENT_PATH + "result/";
+    public static String FALIL_PATH = MyConfiguration.getString("upload_path");
+    public static String RESULT_PATH = MyConfiguration.getString("result_path");
 
-    public synchronized String tessractOCR(String fileName) {
+    public static String tessractOCR(String fileName) {
 
         Runtime runTime = Runtime.getRuntime();
         String filePath = FALIL_PATH + fileName;
@@ -65,7 +66,7 @@ public class TesseractOCR {
      *
      * @return
      */
-    public synchronized String readText(String fileName) {
+    public static String readText(String fileName) {
 
         String filePath = RESULT_PATH + fileName.split("\\.")[0] + ".txt";
         String text = " ";
@@ -73,16 +74,19 @@ public class TesseractOCR {
 
         try {
             File result = new File(filePath);
-            InputStreamReader reader = null; // 建立一个输入流对象reader
-            reader = new InputStreamReader(
-                    new FileInputStream(result),"utf-8");
-                BufferedReader br = new BufferedReader(reader); // 建立一个对象，它把文件内容转成计算机能读懂的语言
-            line = br.readLine();
-            do {
-                text += line;
-                line = br.readLine(); // 一次读入一行数据
-            } while (line != null);
+            result.exists();
+            result.length();
 
+            System.out.println(result.exists()+"");
+            System.out.println(result.length()+"");
+
+            // 建立一个输入流对象reader
+            InputStreamReader reader  = new InputStreamReader(
+                    new FileInputStream(result), "utf-8");
+            BufferedReader br = new BufferedReader(reader);
+            while ((line=br.readLine()) != null){
+                text += line;
+            }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -91,6 +95,58 @@ public class TesseractOCR {
 
         return text;
     }
+
+    public boolean exists(String fileName) {
+        String filePath = RESULT_PATH + fileName.split("\\.")[0] + ".txt";
+        File file = new File(filePath);
+        return file.exists();
+    }
+
+    public boolean rename(String fileName) {
+        String filePath = RESULT_PATH + fileName.split("\\.")[0] + ".txt";
+        File file = new File(filePath);
+        return file.renameTo(file);
+    }
+
+    public boolean isLock(String fileName) throws IOException {
+        String filePath = RESULT_PATH + fileName.split("\\.")[0] + ".txt";
+
+        RandomAccessFile fis = new RandomAccessFile(filePath + ".lock", "rw");
+        FileChannel lockfc = fis.getChannel();
+        FileLock flock = lockfc.tryLock();
+        if (flock == null) {
+            System.out.println("程序正在运行...");
+            return true;
+        }
+
+        return false;
+    }
+
+    public static boolean isFileClosed(String fileName) {
+
+        String filePath = RESULT_PATH + fileName.split("\\.")[0] + ".txt";
+        File file = new File(filePath);
+        try {
+            Process plsof = new ProcessBuilder(new String[]{"lsof", "|", "grep", file.getAbsolutePath()}).start();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(plsof.getInputStream()));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (line.contains(file.getAbsolutePath())) {
+                    reader.close();
+                    plsof.destroy();
+                    return false;
+                }
+            }
+            reader.close();
+            plsof.destroy();
+            return true;
+        } catch (Exception ex) {
+            // TODO: handle exception ...
+            return false;
+        }
+
+    }
+
 
     public static void main(String[] args) {
 
