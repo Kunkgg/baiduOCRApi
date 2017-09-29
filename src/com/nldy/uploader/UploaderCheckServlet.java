@@ -99,7 +99,6 @@ public class UploaderCheckServlet extends HttpServlet {
             // 关闭流
             outChannel.close();
 
-            String result = TesseractOCR.tessractOCR(fileName);
 
         } else if ("checkChunk".equals(action)) {
             System.out.println("checkChunk...");
@@ -122,10 +121,10 @@ public class UploaderCheckServlet extends HttpServlet {
             // tesseract 翻译
 
             String fileName = request.getParameter("fileName");
-            String words = TesseractOCR.readText(fileName);
+            String words = TesseractOCR.tessractOCR(fileName);
+//            String words = TesseractOCR.readText(fileName);
             response.setContentType("text/html;charset=utf-8");
             response.getWriter().write("{\"words\":\"" + words + "\"}");
-            System.out.println("{\"words\":\"" + words + "\"}");
 
         } else if ("translate-baidu".equals(action)) {
 

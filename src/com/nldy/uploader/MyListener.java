@@ -14,7 +14,6 @@ public class MyListener implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
-        ServletContext servletContext = servletContextEvent.getServletContext();
         new MyConfiguration();
     }
 

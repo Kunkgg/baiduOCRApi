@@ -9,6 +9,7 @@
         <element id="directory" name="lib">
           <element id="library" level="project" name="commons-fileupload-1.2.1" />
           <element id="library" level="project" name="json-20160810" />
+          <element id="library" level="project" name="Java EE 6-Java EE 6" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="JavaUploader/web/Web" />

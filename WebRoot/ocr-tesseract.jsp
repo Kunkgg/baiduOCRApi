@@ -136,11 +136,7 @@
                     },
                     dataType: "json",
                     success: function (response) {
-//                        self.translate(file.name, file.id);
-
-                        setTimeout(function () {
-                            self.translate(file.name, file.id);
-                        }, 6000);
+                        self.translate(file.name, file.id);
                     }
                 }
             );
@@ -201,7 +197,7 @@
     uploader.on("fileQueued", function (file) {
         //追加文件信息div
         $("#fileList").append("<div id='" + file.id + "'class='fileInfo'><img/><span>" + file.name +
-            "</span><div class='state'>等待上传...</div><div class='word'>1111</div><span class='text'><span></div>");
+            "</span><div class='state'>等待上传...</div><div class='word'>正在翻译...</div><span class='text'><span></div>");
 
         //生成缩略图：调用makeThumb()方法
         //error：制造缩略图失败

@@ -145,7 +145,6 @@
         },
     });
 
-
     function translate(fileName, fileId) {
         $.ajax(
             {
@@ -165,7 +164,6 @@
             }
         );
     }
-
 
     //1.初始化WebUploader，以及配置全局参数
     var uploader = WebUploader.create({
@@ -197,7 +195,7 @@
     uploader.on("fileQueued", function (file) {
         //追加文件信息div
         $("#fileList").append("<div id='" + file.id + "'class='fileInfo'><img/><span>" + file.name +
-            "</span><div class='state'>等待上传...</div><div class='word'>1111</div><span class='text'><span></div>");
+            "</span><div class='state'>等待上传...</div><div class='word'>正在翻译...</div><span class='text'><span></div>");
 
         //生成缩略图：调用makeThumb()方法
         //error：制造缩略图失败

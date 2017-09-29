@@ -20,27 +20,33 @@ public class TesseractOCR {
         String filePath = FALIL_PATH + fileName;
         String cmd = "tesseract " + filePath + " " + " " + RESULT_PATH + fileName.split("\\.")[0] + " " + " " + "-l chi_sim" + " " + "-psm 6";
 
-        try {
-            runTime.exec(cmd);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
         FileReader fileReader = null;
         BufferedReader bufferedReader = null;
-        String temp = null;
-        String result = "";
+
+        String line = "";
+        String text = "";
+        filePath = RESULT_PATH + fileName.split("\\.")[0] + ".txt";
+
         try {
-            fileReader = new FileReader(filePath);
-            bufferedReader = new BufferedReader(fileReader);
-            while ((temp = bufferedReader.readLine()) != null) {
-                result += temp;
+            // 执行命令
+            Process process = runTime.exec(cmd);
+            // 等待命令执行正常结束
+            if (process.waitFor() == 0){
+                File result = new File(filePath);
+
+                // 建立一个输入流对象reader
+                InputStreamReader reader  = new InputStreamReader(
+                        new FileInputStream(result), "utf-8");
+                BufferedReader br = new BufferedReader(reader);
+                while ((line=br.readLine()) != null){
+                    text += line;
+                }
             }
-            System.out.println(result);
         } catch (IOException e) {
             e.printStackTrace();
-
-        } finally {
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }finally {
             if (fileReader != null) {
                 try {
                     fileReader.close();
@@ -57,43 +63,8 @@ public class TesseractOCR {
             }
 
 
-            return result;
+            return text;
         }
-    }
-
-    /**
-     * 读取 text 文件中的内容
-     *
-     * @return
-     */
-    public static String readText(String fileName) {
-
-        String filePath = RESULT_PATH + fileName.split("\\.")[0] + ".txt";
-        String text = " ";
-        String line = " ";
-
-        try {
-            File result = new File(filePath);
-            result.exists();
-            result.length();
-
-            System.out.println(result.exists()+"");
-            System.out.println(result.length()+"");
-
-            // 建立一个输入流对象reader
-            InputStreamReader reader  = new InputStreamReader(
-                    new FileInputStream(result), "utf-8");
-            BufferedReader br = new BufferedReader(reader);
-            while ((line=br.readLine()) != null){
-                text += line;
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return text;
     }
 
     public boolean exists(String fileName) {
@@ -145,19 +116,6 @@ public class TesseractOCR {
             return false;
         }
 
-    }
-
-
-    public static void main(String[] args) {
-
-//        String fileName = "aa.jpg";
-//        String[] a = fileName.split("\\.");
-//        System.out.println(a);
-//        String aaa = fileName.split("\\.")[0];
-//        System.out.println(aaa);
-
-//        String result = ReadText("aa.txt");
-//        System.out.println(result);
     }
 
 }
