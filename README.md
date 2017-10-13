@@ -1,3 +1,13 @@
+# 功能介绍
+
+包含两种识别方式，一种使用百度识别的 API，另一种使用 Tessaract 进行识别。
+
+百度识别的 API 需要去官网申请自己的密匙，替换原来的密匙 [注册地址](https://cloud.baidu.com/product/ocr.html)；
+
+Tessaract 需要配置环境，可以参考下面的笔记。
+
+中文识别效果是百度接口更好用。
+
 # 1. Tesseract 介绍
 
 Tesseract的OCR引擎最先由HP实验室于1985年开始研发，至1995年时已经成为OCR业内最准确的三款识别引擎之一。然而，HP不久便决定放弃OCR业务，Tesseract也从此尘封。
