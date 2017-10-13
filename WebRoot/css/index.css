@@ -1,0 +1,11 @@
+a{
+    display: block;
+    width: 50%;
+    height: 150px;
+    line-height: 50px;
+    text-align: center;
+    text-decoration: none;
+    float: left;
+    margin-top: 200px;
+    font-size: 30px;
+}

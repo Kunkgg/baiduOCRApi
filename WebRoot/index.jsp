@@ -15,16 +15,13 @@
     <meta http-equiv="expires" content="0">
     <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
     <meta http-equiv="description" content="This is my page">
-    <!--
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    -->
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/index.css">
 </head>
 
 <body>
 
-<a href="${pageContext.request.contextPath}/ocr-baidu.jsp">百度翻译</a>
-<br/>
-<a href="${pageContext.request.contextPath}/ocr-tesseract.jsp">tesseract翻译</a>
+<a href="${pageContext.request.contextPath}/ocr-baidu.jsp">第三方识别</a>
+<a href="${pageContext.request.contextPath}/ocr-tesseract.jsp">Tesseract识别</a>
 
 </body>
 </html>
