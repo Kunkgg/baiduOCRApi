@@ -8,6 +8,8 @@ Tessaract 需要配置环境，可以参考下面的笔记。
 
 中文识别效果是百度接口更好用。
 
+![效果图](https://github.com/YujieShui/baiduOCRApi/blob/master/1.png)
+
 # 1. Tesseract 介绍
 
 Tesseract的OCR引擎最先由HP实验室于1985年开始研发，至1995年时已经成为OCR业内最准确的三款识别引擎之一。然而，HP不久便决定放弃OCR业务，Tesseract也从此尘封。
